@@ -1,0 +1,11 @@
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+
+[tool.flake8]
+max-line-length = 88
+exclude = """
+    .git,
+    .venv,
+    venv,
+"""
