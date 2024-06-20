@@ -219,6 +219,8 @@ def format_wheres(
         raise ValueError(f"Improper 'wheres' format: {wheres}")
 
     # Split where clauses into max 72-character lines
-    wheres = [{"TEXT": line} for line in textwrap.wrap(options, 72)]
+    wheres = [
+        {"TEXT": line} for line in textwrap.wrap(options, 72, drop_whitespace=False)
+    ]
 
     return wheres
