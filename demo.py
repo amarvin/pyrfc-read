@@ -1,20 +1,3 @@
-# pyrfc-read
-
-Query table data from SAP R/3 Systems
-
-## Install
-
-```
-pip install pyrfc-read
-```
-
-### Prerequisites
-
-SAP NW RFC SDK must be installed (https://support.sap.com/nwrfcsdk).
-
-## Demo
-
-```py
 import pyrfc_read
 
 # Define credentials to the SAP R/3 System
@@ -68,4 +51,3 @@ with pyrfc_read.Connection(**credentials) as conn:
         batch_rows=1000,  # optional, handles batching by 1000 rows to not exceed SAP's output limit
         chunk_rows=100,  # optional, handles chunking long wheres conditions to not exceed SAP's input limit
     )
-```
