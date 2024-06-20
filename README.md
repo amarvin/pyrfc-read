@@ -65,7 +65,7 @@ with pyrfc_read.Connection(**credentials) as conn:
         fields,  # optional, but requesting less fields reduces load on SAP
         wheres,  # optional
         field_info=field_info,  # optional, but makes it faster if you already it
-        batch_rows=1000,  # optional, handles batching by 1000 rows to not exceed SAP's output limit
+        batch_rows=1000,  # optional, handles batching rows to not exceed SAP's output limit
         chunk_rows=100,  # optional, handles chunking long wheres conditions to not exceed SAP's input limit
     )
 ```
