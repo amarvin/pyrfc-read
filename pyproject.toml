@@ -2,6 +2,9 @@
 requires = ["setuptools", "wheel", "Cython"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "pyrfc_read"
+
 [tool.isort]
 profile = "black"
 skip_gitignore = true
