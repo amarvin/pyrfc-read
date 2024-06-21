@@ -17,7 +17,5 @@ exclude = """
     venv,
 """
 
-[tool.pytest]
-addopts = "-v --cov=pyrfc_read"
-cov_report = "term-missing"
-cov_report_xml = "coverage.xml"
+[tool.pytest.ini_options]
+addopts = "-v --cov=pyrfc_read --cov-report=term-missing"
