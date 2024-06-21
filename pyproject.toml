@@ -18,4 +18,9 @@ exclude = """
 """
 
 [tool.pytest.ini_options]
-addopts = "-v --cov=pyrfc_read --cov-report=term-missing"
+addopts = [
+    "-v",
+    "--cov=pyrfc_read",
+    "--cov-report=term-missing",
+    "--import-mode=importlib",
+]
