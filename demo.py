@@ -1,4 +1,4 @@
-import pyrfc_read
+from pyrfc_read.pyrfc_read import Connection
 
 # Define credentials to the SAP R/3 System
 #  many combinations of key-values will work here, and these are just an example
@@ -13,7 +13,7 @@ credentials = dict(
 )
 
 # Open connection to the SAP R/3 System
-with pyrfc_read.Connection(**credentials) as conn:
+with Connection(**credentials) as conn:
     # Confirm connection active by having SAP echo a message
     message = "Hello world!"
     response = conn.echo(message)
