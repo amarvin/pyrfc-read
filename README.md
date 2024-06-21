@@ -1,6 +1,13 @@
 # pyrfc-read
 
-Query table data from SAP R/3 Systems
+<p align="center">
+    <em>Query table data from SAP R/3 Systems</em>
+</p>
+
+[![License](https://img.shields.io/github/license/amarvin/pyrfc-read)](https://github.com/amarvin/pyrfc-read/blob/main/LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![codecov](https://codecov.io/gh/amarvin/pyrfc-read/branch/main/graph/badge.svg)](https://codecov.io/gh/amarvin/pyrfc-read)
 
 ## Install
 
@@ -69,3 +76,7 @@ with Connection(**credentials) as conn:
         chunk_rows=100,  # optional, handles chunking long wheres conditions to not exceed SAP's input limit
     )
 ```
+
+## License
+
+This project is licensed under the terms of the MIT license.
