@@ -4,6 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyrfc_read"
+readme = "README.md"
+dynamic = [
+    "authors",
+    "classifiers",
+    "dependencies",
+    "description",
+    "optional-dependencies",
+    "requires-python",
+    "version",
+]
 
 [tool.isort]
 profile = "black"
@@ -18,4 +28,9 @@ exclude = """
 """
 
 [tool.pytest.ini_options]
-addopts = "-v --cov=pyrfc_read --cov-report=term-missing"
+addopts = [
+    "-v",
+    "--cov=pyrfc_read",
+    "--cov-report=term-missing",
+    "--import-mode=importlib",
+]

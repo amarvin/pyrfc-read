@@ -45,8 +45,8 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         pflake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
-      run: |
-        pytest --cov=pyrfc_read --cov-report=xml
+      # https://stackoverflow.com/a/35896910/6068036
+      run: python -m pytest --cov=pyrfc_read --cov-report=xml
     - name: "Upload coverage to Codecov"
       uses: codecov/codecov-action@v2
       with:
