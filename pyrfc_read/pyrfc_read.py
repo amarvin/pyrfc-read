@@ -7,8 +7,15 @@ from pyrfc_read.utils import field_value, format_fields, format_wheres
 
 logger = logging.getLogger(__name__)
 
+# Protect against missing SAP NW SDK prerequisite for pyrfc
+try:
+    BaseConnection = pyrfc.Connection
+except AttributeError:
+    logger.error("pyrfc not configured correctly, likely due to missing SAP NW SDK.")
+    BaseConnection = object
 
-class Connection(pyrfc.Connection):
+
+class Connection(BaseConnection):
     def query(
         self,
         table: str,
