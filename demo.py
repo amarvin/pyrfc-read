@@ -1,4 +1,4 @@
-from pyrfc_read.pyrfc_read import Connection
+from pyrfc_read import Connection
 
 # Define credentials to the SAP R/3 System
 #  many combinations of key-values will work here, and these are just an example
