@@ -16,3 +16,6 @@ exclude = """
     .venv,
     venv,
 """
+
+[tool.pytest.ini_options]
+addopts = "-v --cov=pyrfc_read --cov-report=term-missing"
