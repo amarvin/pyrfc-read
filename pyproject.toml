@@ -4,6 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyrfc_read"
+readme = "README.md"
+dynamic = [
+    "authors",
+    "classifiers",
+    "dependencies",
+    "description",
+    "optional-dependencies",
+    "requires-python",
+    "version",
+]
 
 [tool.isort]
 profile = "black"
