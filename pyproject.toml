@@ -18,4 +18,4 @@ exclude = """
 """
 
 [tool.pytest.ini_options]
-addopts = "--cov=pyrfc_read/"
+addopts = "--cov=pyrfc_read --cov-report=xml"
