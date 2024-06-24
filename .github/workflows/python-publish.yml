@@ -16,15 +16,9 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
-
+  build:
+    name: Build distribution 📦
     runs-on: windows-latest
-
-    # Specifying a GitHub environment is optional, but strongly encouraged
-    #environment: release
-    permissions:
-      # IMPORTANT: this permission is mandatory for trusted publishing
-      id-token: write
 
     steps:
     - uses: actions/checkout@v4
@@ -38,5 +32,29 @@ jobs:
         pip install setuptools wheel twine -r requirements.txt
     - name: Build package
       run: python setup.py sdist bdist_wheel
-    - name: Publish package
+    - name: Store the distribution packages
+      uses: actions/upload-artifact@v3
+      with:
+        name: python-package-distributions
+        path: dist/
+
+  deploy:
+    name: Publish Python 🐍 distribution 📦 to PyPI
+    needs:
+    - build
+    runs-on: ubuntu-latest
+
+    # Specifying a GitHub environment is optional, but strongly encouraged
+    #environment: release
+    permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v3
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Publish distribution 📦 to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
