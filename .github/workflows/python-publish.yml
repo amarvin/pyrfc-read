@@ -18,7 +18,7 @@ permissions:
 jobs:
   deploy:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -33,7 +33,9 @@ jobs:
     - name: Build package
       run: python -m build
     - name: Publish package
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+      # Specifying a GitHub environment is optional, but strongly encouraged
+      #environment: release
+      permissions:
+        # IMPORTANT: this permission is mandatory for trusted publishing
+        id-token: write
+      uses: pypa/gh-action-pypi-publish@release/v1
