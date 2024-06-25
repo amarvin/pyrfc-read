@@ -4,6 +4,8 @@
     <em>Query table data from SAP R/3 Systems</em>
 </p>
 
+[![PyPI Latest Release](https://img.shields.io/pypi/v/pyrfc-read.svg)](https://pypi.org/project/pyrfc-read/)
+[![PyPI downloads](https://static.pepy.tech/badge/pyrfc-read)](https://pepy.tech/project/pyrfc-read)
 [![License](https://img.shields.io/github/license/amarvin/pyrfc-read)](https://github.com/amarvin/pyrfc-read/blob/main/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
