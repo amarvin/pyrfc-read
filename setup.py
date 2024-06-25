@@ -36,7 +36,7 @@ setup(
     author="Alex Marvin",
     author_email="alex.marvin@gmail.com",
     description="Read data from SAP R/3 Systems",
-    url="https://github.com/alex-marvin/pyrfc-read",
+    url="https://github.com/amarvin/pyrfc-read",
     packages=find_packages(exclude=["tests"]),
     long_description=long_description,
     long_description_content_type="text/markdown",
