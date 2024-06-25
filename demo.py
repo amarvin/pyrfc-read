@@ -41,7 +41,7 @@ with Connection(**credentials) as conn:
     ]
     wheres = [
         "MANDT = 100",  # Client 100
-        ["BUKRS", "in", ["0001", "0002", "0003"]],  # Only company codes 1 and 2
+        ["BUKRS", "in", ["0001", "0002", "0003"]],  # Only company codes 1, 2 and 3
     ]
     data = conn.query(
         table,
