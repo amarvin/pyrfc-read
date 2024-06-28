@@ -4,7 +4,8 @@ from pyrfc_read.utils import field_value, format_fields, format_value, format_wh
 
 
 @pytest.mark.parametrize(
-    "value, field_type, expected", [
+    "value, field_type, expected",
+    [
         ("123", "I", 123),
         ("0123", "I", 123),
         (123, "I", 123),
@@ -12,7 +13,7 @@ from pyrfc_read.utils import field_value, format_fields, format_value, format_wh
         ("ABC    ", "C", "ABC"),
         (123.45, "F", 123.45),
         ("a 123.45", "F", "a 123.45"),
-    ]
+    ],
 )
 def test_field_value(value, field_type, expected):
     assert field_value(value, field_type) == expected
@@ -38,16 +39,16 @@ def test_format_fields():
         format_fields(fields)
 
 
-
 @pytest.mark.parametrize(
-    "value, field_type, field_length, expected", [
+    "value, field_type, field_length, expected",
+    [
         ("123", "C", 7, "'0000123'"),
         ("123.45", "C", 7, "'0123.45'"),
         ("ABC", "C", 7, "'ABC'"),
         (123, "I", 7, "'123'"),
         (123.45, "F", 7, "'123.45'"),
         (123.45, "P", 7, "'123.45'"),
-    ]
+    ],
 )
 def test_format_value(value, field_type, field_length, expected):
     assert format_value(value, field_type, field_length) == expected
@@ -79,9 +80,9 @@ def test_format_wheres():
     assert format_wheres([["Field1", "not in", ["ABC", "DEF", "GHI"]]], field_info) == [
         {"TEXT": "(Field1 <> 'ABC' AND Field1 <> 'DEF' AND Field1 <> 'GHI')"}
     ]
-    assert format_wheres(
-        [[["Field1", "Field2"], "in", []]], field_info
-    ) == [{"TEXT": ""}]
+    assert format_wheres([[["Field1", "Field2"], "in", []]], field_info) == [
+        {"TEXT": ""}
+    ]
     assert format_wheres(
         [[["Field1", "Field2"], "in", [["ABC", 1], ["DEF", 2], ["GHI", 3]]]], field_info
     ) == [
@@ -90,11 +91,12 @@ def test_format_wheres():
         },
         {"TEXT": "OR (Field1 = 'GHI' AND Field2 = '3'))"},
     ]
+    assert format_wheres([[["Field1", "Field2"], "not in", []]], field_info) == [
+        {"TEXT": ""}
+    ]
     assert format_wheres(
-        [[["Field1", "Field2"], "not in", []]], field_info
-    ) == [{"TEXT": ""}]
-    assert format_wheres(
-        [[["Field1", "Field2"], "not in", [["ABC", 1], ["DEF", 2], ["GHI", 3]]]], field_info
+        [[["Field1", "Field2"], "not in", [["ABC", 1], ["DEF", 2], ["GHI", 3]]]],
+        field_info,
     ) == [
         {
             "TEXT": "((Field1 <> 'ABC' OR Field2 <> '1') AND (Field1 <> 'DEF' OR Field2 <> "
