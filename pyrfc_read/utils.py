@@ -191,7 +191,7 @@ def format_wheres(
                                 options += ")"
                         else:
                             # Fields must not be in list
-                            for n, item in enumerate(where[2]):
+                            for n, items in enumerate(where[2]):
                                 if n == 0:
                                     options += "("
                                 else:
