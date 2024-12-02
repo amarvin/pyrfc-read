@@ -60,7 +60,7 @@ with Connection(**credentials) as conn:
     # Get table metadata about its fields
     field_info = conn.field_info(table, descriptions=True, language="E")
 
-    # Read table table, only for select fields, matching where conditions
+    # Read table data, only for select fields, matching where conditions
     fields = [
         "BUKRS",  # Company code
         "BUTXT",  # Name of company
