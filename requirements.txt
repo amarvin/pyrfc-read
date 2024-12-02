@@ -1,1 +1,1 @@
-pyrfc
+pyrfc==3.3.1
